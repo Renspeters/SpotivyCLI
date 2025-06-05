@@ -16,6 +16,8 @@ namespace SpotivyCLI.Classes
 
         public void Add(iPlayable playAble) { }
         public void Remove(iPlayable playAble) { }
-        public override string ToString() { }
+        public override string ToString() {
+            return base.ToString();
+        }
     }
 }

@@ -11,10 +11,18 @@ namespace SpotivyCLI.Classes
     {
        ROCK,
        HIPHOP,
-
+       JAZZ,
+       METAL,
+       BLUES,
+       SOUL,
+       BLUEGRASS,
+       ELECTRONIC,
+       CLASSIC,
+       POP,
+       FUNK
 
     }
-    class Song
+    class Song 
     {
         public string Title { get; set; }
         public List<Artist> Artist { get; set; }
@@ -24,6 +32,8 @@ namespace SpotivyCLI.Classes
 
         public Song(string name, List<Artist> artists, int index, Genre genre) { }
 
-        public override string ToString() { }
+        public override string ToString() {
+            return base.ToString();
+        }
     }
 }

@@ -12,8 +12,12 @@ namespace SpotivyCLI.Classes
 
         public Album(List<Artist> artists, string name, List<Song> songs) : base(name) { }
 
-        public List<Artist> ShowArtist() { }
-        public override string ToString() { }
+        public List<Artist> ShowArtist() {
+            throw new NotImplementedException();
+        }
+        public override string ToString() {
+            return base.ToString();
+        }
 
     }
 }

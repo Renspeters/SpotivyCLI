@@ -13,8 +13,12 @@ namespace SpotivyCLI.Classes
 
         public SongCollection(string name) { }
 
-        public override string ToString() { }
+        public override string ToString() {
+            return base.ToString();
+        }
 
-        public List<iPlayable> ShowPlayables() { }
+        public List<iPlayable> ShowPlayables() {
+            throw new NotImplementedException();
+        }
     }
 }

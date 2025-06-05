@@ -13,10 +13,20 @@ namespace SpotivyCLI.Classes
         private List<Playlist> Playlists { get; set; }
 
         public Person(string name) { }
-        public List<Person> ShowFriends() { }
-        public List<Playlist> ShowPlaylists() { }
-        public Playlist SelectPlaylist() { }
-        public void AddFriend() { }
-        public override string ToString() {}
+        public List<Person> ShowFriends() {
+            throw new NotImplementedException();
+        }
+        public List<Playlist> ShowPlaylists() {
+            throw new NotImplementedException();
+        }
+        public Playlist SelectPlaylist() {
+            throw new NotImplementedException();
+        }
+        public void AddFriend() {
+            throw new NotImplementedException();
+        }
+        public override string ToString() {
+            return base.ToString();
+        }
     }
 }

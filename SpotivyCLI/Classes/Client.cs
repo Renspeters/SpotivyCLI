@@ -19,7 +19,7 @@ namespace SpotivyCLI.Classes
         public List<Song> AllSongs { get; private set; }
         private List<Person> AllUsers;
 
-        public Client(List<Person>, List<Album>, List<Song>) { }
+        public Client(List<Person> person, List<Album> album, List<Song> song) { }
         public void SetActiveUser() { }
         public void ShowAllAlbums() { }
         public void SelectAlbum() { }
