@@ -1,10 +1,15 @@
-﻿namespace SpotivyCLI
+﻿using SpotivyCLI.Classes;
+
+namespace SpotivyCLI
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var artist = new Artist("Eminem", new List<Album>());
+            var song = new Song("Lose Yourself", new List<Artist> { artist }, 326, Genre.HIPHOP);
+
+            song.Play();
         }
     }
 }

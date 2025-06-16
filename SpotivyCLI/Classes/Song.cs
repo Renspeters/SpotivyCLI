@@ -22,7 +22,7 @@ namespace SpotivyCLI.Classes
        FUNK
 
     }
-    class Song 
+    class Song : iPlayable
     {
         public string Title { get; set; }
         public List<Artist> Artist { get; set; }
@@ -30,10 +30,46 @@ namespace SpotivyCLI.Classes
 
         private int Duration { get; set; }
 
-        public Song(string name, List<Artist> artists, int index, Genre genre) { }
+        public Song(string title, List<Artist> artist, int duration, Genre genre) {
+            Title = title;
+            Artist = artist;
+            SongGenre = genre;
+            Duration = duration;
+        }
 
         public override string ToString() {
             return base.ToString();
+        }
+
+        public void Play()
+        {
+            Console.WriteLine($"Speelt nu: {Title}");
+            Console.WriteLine($"Genre: {SongGenre}");
+            Console.WriteLine($"Artiest(en):");
+            foreach(var artist in Artist)
+            {
+                Console.WriteLine($"- {artist.Name}");
+            }
+        }
+
+        public void Pause()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Next()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Stop()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Length()
+        {
+            throw new NotImplementedException();
         }
     }
 }

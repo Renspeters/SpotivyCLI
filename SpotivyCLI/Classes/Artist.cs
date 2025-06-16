@@ -11,7 +11,7 @@ namespace SpotivyCLI.Classes
         public string Name { get; set; }
         private List<Album> Albums { get; set; }
         private List<Song> Songs { get; set; }
-        public Artist(string artist, List<Album> albums) { }
+        public Artist(string name, List<Album> albums) { }
         public void AddSong() { }
         public void AddAlbum() { }
         public override string ToString() {
