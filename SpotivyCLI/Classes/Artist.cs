@@ -8,14 +8,17 @@ namespace SpotivyCLI.Classes
 {
     class Artist
     {
-        public string Name { get; set; }
+        public string Name { get;  set; }
         private List<Album> Albums { get; set; }
-        private List<Song> Songs { get; set; }
-        public Artist(string name, List<Album> albums) { }
+        //private List<Song> Songs { get; set; }
+        public Artist(string name, List<Album> albums) {
+            Name = name;
+            Albums = albums;
+        }
         public void AddSong() { }
         public void AddAlbum() { }
         public override string ToString() {
-            return base.ToString();
+            return Name;
         }
     }
 }

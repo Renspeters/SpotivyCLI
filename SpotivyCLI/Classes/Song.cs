@@ -25,14 +25,14 @@ namespace SpotivyCLI.Classes
     class Song : iPlayable
     {
         public string Title { get; set; }
-        public List<Artist> Artist { get; set; }
+        public List<Artist> Artists { get; set; }
         public Genre SongGenre;
 
-        private int Duration { get; set; }
+        public int Duration { get; set; }
 
         public Song(string title, List<Artist> artist, int duration, Genre genre) {
             Title = title;
-            Artist = artist;
+            Artists = artist;
             SongGenre = genre;
             Duration = duration;
         }
@@ -46,9 +46,9 @@ namespace SpotivyCLI.Classes
             Console.WriteLine($"Speelt nu: {Title}");
             Console.WriteLine($"Genre: {SongGenre}");
             Console.WriteLine($"Artiest(en):");
-            foreach(var artist in Artist)
+            foreach(var artist in Artists)
             {
-                Console.WriteLine($"- {artist.Name}");
+                Console.WriteLine($"- {artist}");
             }
         }
 
