@@ -12,6 +12,6 @@ namespace SpotivyCLI.Classes
         public void Pause();
         public void Next() ;
         public void Stop() ;
-        public int Length();
+        int Length { get; }
     }
 }

@@ -10,7 +10,7 @@ namespace SpotivyCLI.Classes
     {
         public string Name { get;  set; }
         private List<Album> Albums { get; set; }
-        //private List<Song> Songs { get; set; }
+        private List<Song> Songs { get; set; }
         public Artist(string name, List<Album> albums) {
             Name = name;
             Albums = albums;

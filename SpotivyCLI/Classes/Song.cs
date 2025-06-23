@@ -28,7 +28,9 @@ namespace SpotivyCLI.Classes
         public List<Artist> Artists { get; set; }
         public Genre SongGenre;
 
-        public int Duration { get; set; }
+        private int Duration { get; set; }
+
+        int iPlayable.Length => throw new NotImplementedException();
 
         public Song(string title, List<Artist> artist, int duration, Genre genre) {
             Title = title;

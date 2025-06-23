@@ -10,7 +10,7 @@ namespace SpotivyCLI.Classes
     {
         private List<Artist> Artist { get; set; }
 
-        public Album(List<Artist> artist, string name, List<Song> songs) : base(name) { }
+        public Album(List<Artist> artists, string name, List<Song> songs) : base(name) { }
 
         public List<Artist> ShowArtist() {
             throw new NotImplementedException();
