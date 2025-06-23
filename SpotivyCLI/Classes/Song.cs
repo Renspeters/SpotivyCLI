@@ -22,18 +22,25 @@ namespace SpotivyCLI.Classes
        FUNK
 
     }
-    class Song 
+    class Song : iPlayable
     {
         public string Title { get; set; }
         public List<Artist> Artist { get; set; }
         public Genre SongGenre;
 
-        private int Duration { get; set; }
+        private int Duration;
+        private int length;
+        public int Length { get { return length; } set { length = value; } }
 
         public Song(string name, List<Artist> artists, int index, Genre genre) { }
 
         public override string ToString() {
             return base.ToString();
         }
+
+        public void Play() { }
+        public void Pause() { }
+        public void Next() { }
+        public void Stop() { }
     }
 }
