@@ -38,7 +38,12 @@ namespace SpotivyCLI.Classes
         public void SelectUserPlaylist() { }
         public void Play() { }
         public void Pause() { }
-        public void Stop() { }
+        public void Stop() {
+            if (null == CurrentlyPlaying) return;
+
+            CurrentlyPlaying.Stop();
+            CurrentlyPlaying = null;
+        }
         public void NextSong() { }
         public void SetShuffle() { }
         public void SetRepeat() { }
