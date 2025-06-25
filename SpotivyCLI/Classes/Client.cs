@@ -14,7 +14,7 @@ namespace SpotivyCLI.Classes
         public bool Shuffle { get; set; }
         public bool Repeat { get; set; }
 
-        private SuperUser? ActiveUser;
+        private SuperUser ActiveUser;
         private List<Album> AllAlbums;
         public List<Song> AllSongs { get; private set; }
         private List<Person> AllUsers;
@@ -25,7 +25,7 @@ namespace SpotivyCLI.Classes
             AllAlbums = album;
             AllSongs = song;
             CurrentlyPlaying = null;
-            ActiveUser = null;
+            // Need to set active user!
         }
         public void SetActiveUser() { }
         public void ShowAllAlbums() { }
@@ -39,10 +39,11 @@ namespace SpotivyCLI.Classes
         public void Play() { }
         public void Pause() { }
         public void Stop() {
+            if (!Playing) return;
+
             if (null == CurrentlyPlaying) return;
 
             CurrentlyPlaying.Stop();
-            CurrentlyPlaying = null;
         }
         public void NextSong() { }
         public void SetShuffle() { }
