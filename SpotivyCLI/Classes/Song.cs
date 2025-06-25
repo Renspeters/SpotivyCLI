@@ -25,14 +25,19 @@ namespace SpotivyCLI.Classes
     class Song : iPlayable
     {
         public string Title { get; set; }
-        public List<Artist> Artist { get; set; }
+        public List<Artist> Artists { get; set; }
         public Genre SongGenre;
 
-        private int Duration;
+        private int? Duration = null;
         private int length;
         public int Length { get { return length; } set { length = value; } }
 
-        public Song(string name, List<Artist> artists, int index, Genre genre) { }
+        public Song(string title, List<Artist> artists, int length, Genre genre) {
+            Title = title;
+            Artists = artists;
+            Length = length;
+            SongGenre = genre;
+        }
 
         public override string ToString() {
             return base.ToString();
@@ -41,6 +46,9 @@ namespace SpotivyCLI.Classes
         public void Play() { }
         public void Pause() { }
         public void Next() { }
-        public void Stop() { }
+        public void Stop() {
+            Console.WriteLine("Stopped playing!");
+            Duration = null;
+        }
     }
 }
