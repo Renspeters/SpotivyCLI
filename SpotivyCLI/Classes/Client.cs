@@ -16,7 +16,7 @@ namespace SpotivyCLI.Classes
 
         private SuperUser ActiveUser;
         private List<Album> AllAlbums;
-        public List<Song> AllSongs { get; private set; }
+        public List<Song> AllSongs { get; set; }
         private List<Person> AllUsers;
 
         public Client(List<Person> person, List<Album> album, List<Song> song) { }
@@ -33,14 +33,35 @@ namespace SpotivyCLI.Classes
         public void Pause() { }
         public void Stop() { }
         public void NextSong() {
-            if(CurrentlyPlaying != null && Playing)
+            if(CurrentlyPlaying == null) // Als er geen nummer wordt afgespeeld, 
             {
-                CurrentlyPlaying.Next();
+                Console.WriteLine("No song active");
+                return;
+            }
+            Song current = CurrentlyPlaying as Song; //Nummer dat zich afspeelt
+            int index = AllSongs.IndexOf(current);
+            if (index == -1) // controleert of er nog een nummer in de lijst zit
+            {
+                Console.WriteLine("Song not found");
+                return;
+            }
+            if (index + 1 < AllSongs.Count) // Als er nog een ander numer in de lijst zit, speelt het zich af
+            {
+                CurrentlyPlaying = AllSongs[index + 1];
                 CurrentTime = 0;
+                Playing = true;
+                Console.WriteLine("Next Song:");
+                CurrentlyPlaying.Play();
+            } else if (Repeat){ // Als Repeat true is, dan speelt de lijst opnieuw vanaf het begin
+                CurrentlyPlaying = AllSongs[0];
+                CurrentTime = 0;
+                Console.WriteLine("Repeat from begin:");
+                CurrentlyPlaying.Play();
             }
             else
             {
-                Console.WriteLine("No song selected");
+                Playing = false;
+                Console.WriteLine("End of list");
             }
         }
         public void SetShuffle() { }
