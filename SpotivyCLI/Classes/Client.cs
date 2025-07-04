@@ -19,8 +19,7 @@ namespace SpotivyCLI.Classes
         public List<Song> AllSongs { get; private set; }
         private List<Person> AllUsers;
 
-        public Client(List<Person> person, List<Album> album, List<Song> song) 
-        {
+        public Client(List<Person> person, List<Album> album, List<Song> song) {
             AllUsers = person;
             AllAlbums = album;
             AllSongs = song;
@@ -28,7 +27,24 @@ namespace SpotivyCLI.Classes
             // Need to set active user!
         }
         public void SetActiveUser() { }
-        public void ShowAllAlbums() { }
+        public void ShowAllAlbums() {
+            foreach (var album in AllAlbums)
+            {
+                Console.WriteLine($"Title: {album.Title}, Length: {album.Length}, ");
+                Console.WriteLine("Artists: ");
+                var artists = album.ShowArtist();
+                foreach (var artist in artists)
+                {
+                    Console.Write(string.Join(", ", artist.Name));
+                }
+                Console.WriteLine("Songs: ");
+                var songs = album.ShowPlayables();
+                foreach (var song in songs)
+                {
+                    Console.Write(string.Join(", ", song.ToString()));
+                }
+            }
+        }
         public void SelectAlbum() { }
         public void ShowAllSongs() { }
         public void SelectSong() { }
@@ -36,8 +52,7 @@ namespace SpotivyCLI.Classes
         public void SelectUser() { }
         public void ShowUserPlaylists() { }
         public void SelectUserPlaylist() { }
-        public void Play() 
-        {
+        public void Play() {
             Playing = true;
             CurrentlyPlaying.Play();
         }
