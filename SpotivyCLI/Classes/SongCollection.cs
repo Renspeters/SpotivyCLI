@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SpotivyCLI.Classes
 {
-    class SongCollection
+    class SongCollection : iPlayable
     {
         public string Title { get; set; }
-        private List<iPlayable> playables { get; set; }
+        private int length;
+        public int Length { get { return length; } set { length = value; } }
 
         public SongCollection(string name) { }
 

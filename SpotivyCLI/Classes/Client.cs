@@ -33,36 +33,20 @@ namespace SpotivyCLI.Classes
         public void Pause() { }
         public void Stop() { }
         public void NextSong() {
-            if(CurrentlyPlaying == null) // Als er geen nummer wordt afgespeeld, 
+            if(CurrentlyPlaying == null)
             {
                 Console.WriteLine("No song active");
                 return;
             }
-            Song current = CurrentlyPlaying as Song; //Nummer dat zich afspeelt
-            int index = AllSongs.IndexOf(current);
-            if (index == -1) // controleert of er nog een nummer in de lijst zit
-            {
-                Console.WriteLine("Song not found");
-                return;
-            }
-            if (index + 1 < AllSongs.Count) // Als er nog een ander numer in de lijst zit, speelt het zich af
-            {
-                CurrentlyPlaying = AllSongs[index + 1];
-                CurrentTime = 0;
-                Playing = true;
-                Console.WriteLine("Next Song:");
-                CurrentlyPlaying.Play();
-            } else if (Repeat){ // Als Repeat true is, dan speelt de lijst opnieuw vanaf het begin
-                CurrentlyPlaying = AllSongs[0];
-                CurrentTime = 0;
-                Console.WriteLine("Repeat from begin:");
-                CurrentlyPlaying.Play();
+            if(CurrentlyPlaying is SongCollection){
+                CurrentlyPlaying.Next();
             }
             else
             {
-                Playing = false;
-                Console.WriteLine("End of list");
+                CurrentlyPlaying.Play();
             }
+                CurrentTime = 0;
+            Playing = true;
         }
         public void SetShuffle() { }
         public void SetRepeat() { }
