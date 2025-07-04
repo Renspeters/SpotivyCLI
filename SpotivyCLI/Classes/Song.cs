@@ -28,17 +28,15 @@ namespace SpotivyCLI.Classes
         public List<Artist> Artists { get; set; }
         public Genre SongGenre;
 
-        private int Duration;
+        private int? Duration = null;
         private int length;
         public int Length { get { return length; } set { length = value; } }
 
-        int iPlayable.Length => throw new NotImplementedException();
-
-        public Song(string title, List<Artist> artist, int duration, Genre genre) {
+        public Song(string title, List<Artist> artists, int length, Genre genre) {
             Title = title;
-            Artists = artist;
+            Artists = artists;
+            Length = length;
             SongGenre = genre;
-            Duration = duration;
         }
 
         public override string ToString() {
@@ -66,14 +64,9 @@ namespace SpotivyCLI.Classes
             throw new NotImplementedException();
         }
 
-        public void Stop()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Length()
-        {
-            throw new NotImplementedException();
+        public void Stop() {
+            Console.WriteLine("Stopped playing!");
+            Duration = null;
         }
     }
 }
