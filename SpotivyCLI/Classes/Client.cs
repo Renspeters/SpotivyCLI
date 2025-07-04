@@ -29,7 +29,21 @@ namespace SpotivyCLI.Classes
         }
         public void SetActiveUser() { }
         public void ShowAllAlbums() { }
-        public void SelectAlbum() { }
+        public void SelectAlbum(int index) {
+            if (index < 0)
+            {
+                throw new Exception("Can not select any index lower than 1");
+            }
+
+            var album = AllAlbums[index];
+            if (album == null)
+            {
+                Console.WriteLine("Album does not exist in list of albums");
+                return;
+            }
+            Console.WriteLine($"Selected album: {album.Title}");
+            CurrentlyPlaying = album;
+        }
         public void ShowAllSongs() { }
         public void SelectSong() { }
         public void ShowAllUsers() { }
