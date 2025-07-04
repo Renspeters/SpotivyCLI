@@ -10,13 +10,18 @@ namespace SpotivyCLI.Classes
     {
         private List<Artist> Artist { get; set; }
 
+
         public Album(List<Artist> artists, string name, List<Song> songs) : base(name) { }
 
         public List<Artist> ShowArtist() {
             throw new NotImplementedException();
         }
         public override string ToString() {
-            return base.ToString();
+            string Album = base.ToString();
+            string artists = string.Join(", ", Artist);
+            Album += $" Artists: {artists}";
+
+            return Album;
         }
 
     }
