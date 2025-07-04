@@ -8,18 +8,25 @@ namespace SpotivyCLI.Classes
 {
     class Client
     {
-        public iPlayable CurrentlyPlaying { get; set; }
+        public iPlayable? CurrentlyPlaying { get; set; }
         public int CurrentTime { get; set; }
         public bool Playing { get; set; }
         public bool Shuffle { get; set; }
         public bool Repeat { get; set; }
 
-        private SuperUser ActiveUser;
+        private SuperUser? ActiveUser;
         private List<Album> AllAlbums;
         public List<Song> AllSongs { get; private set; }
         private List<Person> AllUsers;
 
-        public Client(List<Person> person, List<Album> album, List<Song> song) { }
+        public Client(List<Person> person, List<Album> album, List<Song> song) 
+        {
+            AllUsers = person;
+            AllAlbums = album;
+            AllSongs = song;
+            CurrentlyPlaying = null;
+            ActiveUser = null;
+        }
         public void SetActiveUser() { }
         public void ShowAllAlbums() { }
         public void SelectAlbum() { }
