@@ -14,7 +14,19 @@ namespace SpotivyCLI.Classes
         public SongCollection(string name) { }
 
         public override string ToString() {
-            return base.ToString();
+            List<string> songNames = new List<string>();
+
+            foreach (iPlayable playable in playables)
+            {
+                var songName = playable.ToString();
+                if (songName != null)
+                {
+                    songNames.Add(songName);
+                }
+            }
+
+            string SongCollection = string.Join(", ", songNames);
+            return SongCollection;
         }
 
         public List<iPlayable> ShowPlayables() {

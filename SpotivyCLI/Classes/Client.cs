@@ -30,7 +30,18 @@ namespace SpotivyCLI.Classes
         public void SetActiveUser() { }
         public void ShowAllAlbums() { }
         public void SelectAlbum() { }
-        public void ShowAllSongs() { }
+        public void ShowAllSongs() { // Should probably be changed in the future.
+            ShowAllSongsFromSelected();
+        }
+        private void ShowAllSongsFromSelected() {
+            if (CurrentlyPlaying == null) return;
+            if (CurrentlyPlaying is Song)
+            {
+                Console.WriteLine("Can't see a list of songs from a single song!");
+                return;
+            }
+            Console.WriteLine(CurrentlyPlaying.ToString());
+        }
         public void SelectSong() { }
         public void ShowAllUsers() { }
         public void SelectUser() { }
