@@ -51,7 +51,9 @@ namespace SpotivyCLI.Classes
         }
         public void NextSong() { }
         public void SetShuffle() { }
-        public void SetRepeat() { }
+        public void SetRepeat(bool repeat) {
+            Repeat = repeat;
+        }
         public void CreatePlaylist() { }
         public void ShowPlaylists() { }
         public void SelectPlaylist() { }
