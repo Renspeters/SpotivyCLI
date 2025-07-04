@@ -56,8 +56,9 @@ namespace SpotivyCLI.Classes
 
         public void Pause()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Paused play.");
         }
+
 
         public void Next()
         {

@@ -41,7 +41,10 @@ namespace SpotivyCLI.Classes
             Playing = true;
             CurrentlyPlaying.Play();
         }
-        public void Pause() { }
+        public void Pause() {
+            Playing = false;
+            CurrentlyPlaying.Pause();
+        }
         public void Stop() {
             if (!Playing) return;
 
