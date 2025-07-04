@@ -36,7 +36,11 @@ namespace SpotivyCLI.Classes
         public void SelectUser() { }
         public void ShowUserPlaylists() { }
         public void SelectUserPlaylist() { }
-        public void Play() { }
+        public void Play() 
+        {
+            Playing = true;
+            CurrentlyPlaying.Play();
+        }
         public void Pause() { }
         public void Stop() {
             if (!Playing) return;

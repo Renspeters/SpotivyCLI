@@ -43,9 +43,27 @@ namespace SpotivyCLI.Classes
             return base.ToString();
         }
 
-        public void Play() { }
-        public void Pause() { }
-        public void Next() { }
+        public void Play()
+        {
+            Console.WriteLine($"Speelt nu: {Title}");
+            Console.WriteLine($"Genre: {SongGenre}");
+            Console.WriteLine($"Artiest(en):");
+            foreach(var artist in Artists)
+            {
+                Console.WriteLine($"- {artist}");
+            }
+        }
+
+        public void Pause()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Next()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Stop() {
             Console.WriteLine("Stopped playing!");
             Duration = null;
