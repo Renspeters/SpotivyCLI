@@ -40,7 +40,7 @@ namespace SpotivyCLI.Classes
         }
 
         public override string ToString() {
-            return base.ToString();
+            return Title;
         }
 
         public void Play()
