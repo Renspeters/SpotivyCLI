@@ -39,10 +39,6 @@ namespace SpotivyCLI.Classes
             SongGenre = genre;
         }
 
-        public override string ToString() {
-            return base.ToString();
-        }
-
         public void Play()
         {
             Console.WriteLine($"Speelt nu: {Title}");

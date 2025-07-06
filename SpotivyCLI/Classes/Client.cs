@@ -38,10 +38,22 @@ namespace SpotivyCLI.Classes
         public void SelectUserPlaylist() { }
         public void Play() 
         {
+            if (null == CurrentlyPlaying) return;
+            if (Playing) // Little add on when pressing play/pause button for pause & unpause.
+            {
+                Pause();
+                return
+            }
             Playing = true;
             CurrentlyPlaying.Play();
         }
         public void Pause() {
+            if (null == CurrentlyPlaying) return;
+            if (!Playing) // Little add on when pressing play/pause button for pause & unpause.
+            {
+                Play();
+                return;
+            }
             Playing = false;
             CurrentlyPlaying.Pause();
         }
