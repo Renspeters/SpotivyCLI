@@ -25,7 +25,19 @@ namespace SpotivyCLI.Classes
             AllAlbums = album;
             AllSongs = song;
         }
-        public void SetActiveUser() { }
+        public void SetActiveUser() {
+            ActiveUser = AllUsers.OfType<SuperUser>().FirstOrDefault();
+
+            if (ActiveUser == null)
+            {
+                Console.WriteLine("No SuperUser founded. Can not add a active user");
+            }
+            else
+            {
+                Console.WriteLine($"Active user added: {ActiveUser.Name}");
+            }
+        }
+        }
         public void ShowAllAlbums() { }
         public void SelectAlbum() { }
         public void ShowAllSongs() { }
