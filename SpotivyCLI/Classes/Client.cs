@@ -37,7 +37,6 @@ namespace SpotivyCLI.Classes
                 Console.WriteLine($"Active user added: {ActiveUser.Name}");
             }
         }
-        }
         public void ShowAllAlbums() { }
         public void SelectAlbum() { }
         public void ShowAllSongs() { }
