@@ -19,7 +19,12 @@ namespace SpotivyCLI.Classes
         public List<Song> AllSongs { get; set; }
         private List<Person> AllUsers;
 
-        public Client(List<Person> person, List<Album> album, List<Song> song) { }
+        public Client(List<Person> person, List<Album> album, List<Song> song) {
+           
+            AllUsers = person;
+            AllAlbums = album;
+            AllSongs = song;
+        }
         public void SetActiveUser() { }
         public void ShowAllAlbums() { }
         public void SelectAlbum() { }
@@ -32,14 +37,27 @@ namespace SpotivyCLI.Classes
         public void Play() { }
         public void Pause() { }
         public void Stop() { }
-        public void NextSong() {
-            if(CurrentlyPlaying == null)
+        public void NextSong()
+        {
+            if (CurrentlyPlaying == null)
             {
                 Console.WriteLine("No song active");
                 return;
             }
-            if(CurrentlyPlaying is SongCollection){
+            if (CurrentlyPlaying is SongCollection)
+            {
                 CurrentlyPlaying.Next();
+            }
+            else if (CurrentlyPlaying is Song currentSong && AllSongs.Count > 0)
+            {
+                int i = AllSongs.IndexOf(currentSong);
+                if(i == -1)
+                {
+                    Console.WriteLine("song not found");
+                    return;
+                }
+                CurrentlyPlaying = AllSongs[(i + 1) % AllSongs.Count];
+                CurrentlyPlaying.Play();
             }
             else
             {
@@ -48,6 +66,8 @@ namespace SpotivyCLI.Classes
                 CurrentTime = 0;
             Playing = true;
         }
+
+
         public void SetShuffle() { }
         public void SetRepeat() { }
         public void CreatePlaylist() { }
