@@ -11,7 +11,7 @@ namespace SpotivyCLI.Classes
         public Person Owner { get; set; }
 
         public Playlist(Person person, string name) : base(name) {
-            Owner = new Person(name);
+            Owner = person;
         }
 
         public void Add(iPlayable playAble) { }

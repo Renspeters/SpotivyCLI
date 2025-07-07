@@ -10,18 +10,23 @@ namespace SpotivyCLI.Classes
     {
         public string Name { get; set; }
         private List<Person> Friends { get; set; }
-        private List<Playlist> Playlists { get; set; }
+        protected List<Playlist> Playlists { get; set; }
 
-        public Person(string name) { }
+        public Person(string name) {
+            Name = name;
+            Friends = new List<Person>();
+            Playlists = new List<Playlist>();
+        }
         public List<Person> ShowFriends() {
             throw new NotImplementedException();
         }
         public List<Playlist> ShowPlaylists() {
             throw new NotImplementedException();
         }
-        public Playlist SelectPlaylist() {
-            throw new NotImplementedException();
+        public Playlist SelectPlaylist(int index) {
+            return Playlists[index];
         }
+
         public void AddFriend() {
             throw new NotImplementedException();
         }

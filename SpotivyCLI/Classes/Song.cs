@@ -22,13 +22,14 @@ namespace SpotivyCLI.Classes
        FUNK
 
     }
-    class Song 
+    class Song : iPlayable
     {
         public string Title { get; set; }
         public List<Artist> Artist { get; set; }
         public Genre SongGenre;
 
         private int Duration { get; set; }
+        public int Length { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Song(string name, List<Artist> artists, int index, Genre genre) { }
 

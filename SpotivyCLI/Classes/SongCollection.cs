@@ -11,7 +11,10 @@ namespace SpotivyCLI.Classes
         public string Title { get; set; }
         private List<iPlayable> playables { get; set; }
 
-        public SongCollection(string name) { }
+        public SongCollection(string name) {
+            Title = name;
+            playables = new List<iPlayable>();
+        }
 
         public override string ToString() {
             return base.ToString();
