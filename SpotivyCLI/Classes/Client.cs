@@ -63,7 +63,7 @@ namespace SpotivyCLI.Classes
             {
                 CurrentlyPlaying.Play();
             }
-                CurrentTime = 0;
+            CurrentTime = 0;
             Playing = true;
         }
 
