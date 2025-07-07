@@ -65,7 +65,9 @@ namespace SpotivyCLI.Classes
             CurrentlyPlaying.Stop();
         }
         public void NextSong() { }
-        public void SetShuffle() { }
+        public void SetShuffle(bool shuffle) {
+            Shuffle = shuffle;
+        }
         public void SetRepeat() { }
         public void CreatePlaylist() { }
         public void ShowPlaylists() { }
